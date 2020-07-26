@@ -1,0 +1,89 @@
+<div class="container" style="background-color:mistyrose;">
+  <ul ngbNav #nav="ngbNav" [activeId]="1" class="nav-tabs justify-content-center">
+    <li [ngbNavItem]="1">
+      <a ngbNavLink>dashboard</a>
+      <ng-template ngbNavContent>
+        <form>
+          <div class="form-group form-inline">
+            <input class="form-control ml-2" placeholder="search by all" type="text" [formControl]="filter" />
+          </div>
+        </form>
+
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">S.no</th>
+              <th scope="col">Country</th>
+              <th scope="col">Capital</th>
+              <th scope="col">Country Code</th>
+              <th scope="col">Continent</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let country of countries$ | async; index as i">
+              <th scope="row">{{ i + 1 }}</th>
+              <td>
+                <img [src]="country.flag" class="mr-2" style="width: 20px">
+                <ngb-highlight [result]="country.name" [term]="filter.value"></ngb-highlight>
+              </td>
+              <td>
+                <ngb-highlight [result]="country.capital" [term]="filter.value"></ngb-highlight>
+              </td>
+              <td>
+                <ngb-highlight [result]="country.code" [term]="filter.value"></ngb-highlight>
+              </td>
+              <td>
+                <ngb-highlight [result]="country.region" [term]="filter.value"></ngb-highlight>
+              </td>
+              <td>
+                <button class="btn-danger" (click)="countrydetail(country.name)">view more</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </ng-template>
+    </li>
+    <li [ngbNavItem]="2">
+      <a ngbNavLink>countries</a>
+      <ng-template ngbNavContent>
+        <app-cname></app-cname>
+      </ng-template>
+    </li>
+    <li [ngbNavItem]="3">
+      <a ngbNavLink>Country codes</a>
+      <ng-template ngbNavContent>
+        <app-ccode></app-ccode>
+      </ng-template>
+    </li>
+    <li [ngbNavItem]="4">
+      <a ngbNavLink>capitals</a>
+      <ng-template ngbNavContent>
+        <app-ccapital></app-ccapital>
+      </ng-template>
+    </li>
+    <li [ngbNavItem]="5">
+      <a ngbNavLink>Continents</a>
+      <ng-template ngbNavContent>
+        <app-continent></app-continent>
+      </ng-template>
+    </li>
+    <li>
+      <div class="row">
+        <div class="col text-right">
+          <div ngbDropdown class="d-inline-block">
+            <button class="btn btn-outline-primary" id="dropdownBasic2" ngbDropdownToggle>Charts</button>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic2">
+              <button ngbDropdownItem routerLink="/area">Top 10 largest countries in world</button>
+              <button ngbDropdownItem routerLink="/population">Top 10 countries with higest population in world</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </li>
+
+    <li ngbNavItem [disabled]="true" class="ml-auto">
+    </li>
+  </ul>
+
+  <div [ngbNavOutlet]="nav" class="mt-2"></div>
+</div>

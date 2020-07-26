@@ -1,0 +1,31 @@
+<form>
+    <div class="form-group form-inline">
+      Search by capital: <input class="form-control ml-2" type="text" [formControl]="filter" />
+    </div>
+  </form>
+  
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">S.no</th>
+        <th scope="col">capital</th>
+        <th scope="col">country</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let country of countries$ | async; index as i">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>
+          <ngb-highlight [result]="country.capital" [term]="filter.value"></ngb-highlight>
+        </td>
+        <td>
+            <img [src]="country.flag" class="mr-2"
+              style="width: 20px">
+            <ngb-highlight [result]="country.name" [term]="filter.value"></ngb-highlight>
+          </td>
+          <td>
+            <button class="btn-danger" (click)="countrydetail(country.name)">view more</button>
+          </td>
+      </tr>
+    </tbody>
+  </table>

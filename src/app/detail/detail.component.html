@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container" style="background-color:lightsalmon;">
+        <h2 style="text-align: center;">{{countrydetail[0]}}</h2>
+        <img src="{{countrydetail[4]}}" class="img-thumbnail" alt="Cinque Terre" width="304" height="236"
+            style="margin-left: 35%;">
+        <br><br>
+        <table class="table table-sm table-dark">
+            <tbody>
+                <tr class="table-light">
+                    <td style="color: black;font-size: 20px;">Capital</td>
+                    <td style="font-size:20px;color: firebrick;">{{countrydetail[1]}}</td>
+                </tr>
+                <tr class="table-primary">
+                    <td style="color: black;font-size: 20px;">Code</td>
+                    <td style="font-size:20px;color: firebrick;">{{countrydetail[2]}}</td>
+                </tr>
+                <tr class="table-secondary">
+                    <td style="color: black;font-size: 20px;">Currency</td>
+                    <td style="font-size:20px;color: firebrick;">{{countrydetail[3]}}</td>
+                </tr>
+                <tr class="table-success">
+                    <td style="color: black;font-size: 20px;">area</td>
+                    <td style="font-size:20px;color: firebrick;">{{countrydetail[8]}}</td>
+                </tr>
+                <tr class="table-danger">
+                    <td style="color: black;font-size: 20px;">Population</td>
+                    <td style="font-size:20px;color: firebrick;">{{countrydetail[7]}}</td>
+                </tr>
+                <tr class="table-warning">
+                    <td style="color: black;font-size: 20px;">Continent</td>
+                    <td style="font-size:20px;color: firebrick;">{{countrydetail[9]}}</td>
+                </tr>
+                <tr class="table-info">
+                    <td style="color: black;font-size: 20px;">Sub region</td>
+                    <td style="font-size:20px;color: firebrick;">{{countrydetail[10]}}</td>
+                </tr>
+                <tr class="table-dark">
+                    <td style="color: black;font-size: 20px;">Time Zone</td>
+                    <td style="font-size:20px;color: firebrick;">{{countrydetail[11]}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+
+</html>
